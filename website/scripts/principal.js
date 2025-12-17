@@ -1,3 +1,5 @@
+    AOS.init();
+ 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
