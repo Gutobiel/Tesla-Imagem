@@ -2,8 +2,8 @@
             /*--navy-blue: #009688;
             --tesla-blue: #00b7a4;*/
 
-            --navy-blue: #009fe3;
-            --tesla-blue: #0199A4;
+            --navy-blue: #0199A4;
+            --tesla-blue: #00264d;
             --white: #ffffff;
             --light-grey: #f5f5f5;
             --metallic-silver: #c0c0c0;
@@ -20,6 +20,47 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* BOTAO DO ZAP */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 14px;
+  right: 24px;
+  z-index: 99;
+}
+.btn-whatsapp img {
+  max-width: 74px;
+  transition: transform 0.4s;
+}
+.btn-whatsapp img:hover {
+  transform: scale(1.1);
+}
+
+.btn-whatsapp .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: 120px;
+  top: 8px;
+  left: -144px;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #232224;
+  color: #FFF;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.btn-whatsapp:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-whatsapp img {
+    max-width: 64px;
+  }
+}
 
         body {
             font-family: 'Lato', sans-serif;
@@ -40,7 +81,7 @@
         }
 
         .navbar.scrolled {
-            background-color: #0199a4f3 /* rgba(0, 38, 77, 0.95) */;
+            background-color: rgba(0, 38, 77, 0.95);
             /* #00264d */
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
