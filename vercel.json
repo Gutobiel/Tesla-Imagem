@@ -4,7 +4,7 @@
     { "src": "website/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "^/$", "dest": "/website/páginas/principal.html" },
+    { "src": "^/$", "dest": "/website/páginas/index.html" },
     { "src": "^/(.*)", "dest": "/website/$1" }
   ]
 }
