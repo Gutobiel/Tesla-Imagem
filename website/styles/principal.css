@@ -21,47 +21,6 @@
             scroll-behavior: smooth;
         }
 
-        /* BOTAO DO ZAP */
-.btn-whatsapp {
-  position: fixed;
-  bottom: 14px;
-  right: 24px;
-  z-index: 99;
-}
-.btn-whatsapp img {
-  max-width: 74px;
-  transition: transform 0.4s;
-}
-.btn-whatsapp img:hover {
-  transform: scale(1.1);
-}
-
-.btn-whatsapp .tooltip-text {
-  visibility: hidden;
-  position: absolute;
-  width: 120px;
-  top: 8px;
-  left: -144px;
-  padding: 6px;
-  border-radius: 8px;
-  text-align: center;
-  background-color: #232224;
-  color: #FFF;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.btn-whatsapp:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 768px) {
-  .btn-whatsapp img {
-    max-width: 64px;
-  }
-}
-
         body {
             font-family: 'Lato', sans-serif;
             color: var(--text-dark);
@@ -936,3 +895,22 @@
                 display: none;
             }
         }
+
+/* Render page scaled to 67% by default to match desired appearance
+     Uses transform + width compensation so layout and scroll behave normally.
+     Disabled on small screens. */
+@media (min-width: 901px) {
+    :root {
+        --site-scale: 0.67;
+    }
+    body {
+        transform-origin: 0 0;
+        transform: scale(var(--site-scale));
+        width: calc(100% / var(--site-scale));
+    }
+}
+
+@media (max-width: 900px) {
+    /* keep normal scaling on smaller devices for usability */
+    body { transform: none; width: auto; }
+}
