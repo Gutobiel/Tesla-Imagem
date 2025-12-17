@@ -895,22 +895,3 @@
                 display: none;
             }
         }
-
-/* Render page scaled to 67% by default to match desired appearance
-     Uses transform + width compensation so layout and scroll behave normally.
-     Disabled on small screens. */
-@media (min-width: 901px) {
-    :root {
-        --site-scale: 0.67;
-    }
-    body {
-        transform-origin: 0 0;
-        transform: scale(var(--site-scale));
-        width: calc(100% / var(--site-scale));
-    }
-}
-
-@media (max-width: 900px) {
-    /* keep normal scaling on smaller devices for usability */
-    body { transform: none; width: auto; }
-}
