@@ -824,7 +824,7 @@
 
         .footer-links a:hover {
             opacity: 1;
-            color: var(--tesla-blue);
+            color: var(--navy-blue);
         }
 
         .social-icons {
@@ -845,8 +845,8 @@
         }
 
         .social-icon:hover {
-            background-color: var(--tesla-blue);
-            border-color: var(--tesla-blue);
+            background-color: var(--navy-blue);
+            border-color: var(--navy-blue);
         }
 
         .social-icon svg {
