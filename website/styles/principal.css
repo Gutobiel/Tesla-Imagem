@@ -9,6 +9,22 @@
             --metallic-silver: #c0c0c0;
             --text-dark: #1a1a1a;
             --text-grey: #666666;
+
+            /* Variáveis do Carrossel */
+            --carousel-bg: var(--white);
+            --carousel-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --carousel-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --carousel-logo-size: 120px;
+            --carousel-logo-size-mobile: 100px;
+            --carousel-gap: 50px;
+            --carousel-gap-mobile: 30px;
+            --carousel-arrow-bg: var(--white);
+            --carousel-arrow-color: var(--tesla-blue);
+            --carousel-arrow-hover-bg: var(--tesla-blue);
+            --carousel-arrow-hover-color: var(--white);
+            --carousel-arrow-size: 40px;
+            --carousel-border-radius: 8px;
+            --carousel-transition: 0.3s ease;
         }
 
         * {
@@ -159,6 +175,7 @@
         .btn-secondary:hover {
             background-color: var(--navy-blue);
             color: var(--white);
+            transform: scale(1.05);
         }
 
         .btn-large {
@@ -460,59 +477,177 @@
             gap: 10px;
         }
 
-        /* Scheduling Section */
-        .scheduling {
-            background-color: var(--tesla-blue);
+        /* ===== SEÇÃO DE CONVÊNIOS ===== */
+        .convenios {
+            padding: 80px 20px;
+            background-color: var(--light-grey);
             text-align: center;
         }
 
-        .scheduling .section-title {
-            color: var(--white);
+        .convenios .section-title {
+            color: var(--tesla-blue);
+            margin-bottom: 50px;
         }
 
-        .scheduling .section-title::after {
-            background-color: var(--white);
-        }
-
-        .scheduling-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 30px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .scheduling-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--white);
-        }
-
-        .scheduling p {
-            font-size: 20px;
-            color: var(--white);
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .scheduling .btn {
-            background-color: var(--white);
-            color: var(--navy-blue);
-            font-weight: 600;
-        }
-
-        .scheduling .btn:hover {
+        .convenios .section-title::after {
             background-color: var(--navy-blue);
-            color: var(--white);
-            transform: scale(1.05);
+        }
+
+        /* ===== CONTAINER DO CARROSSEL ===== */
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 20px 60px;
+        }
+
+        /* ===== CARROSSEL ===== */
+        .carousel {
+            display: flex;
+            align-items: center;
+            gap: var(--carousel-gap);
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ===== LOGOS DOS CONVÊNIOS ===== */
+        .carousel img {
+            width: var(--carousel-logo-size);
+            height: var(--carousel-logo-size);
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: var(--carousel-border-radius);
+            padding: 10px;
+            background: var(--carousel-bg);
+            box-shadow: var(--carousel-shadow);
+            transition: all var(--carousel-transition);
+            /* Remove o filtro grayscale para ficar sempre colorido */
+            filter: brightness(1) saturate(1);
+            opacity: 1;
+        }
+
+        /* Opcional: leve realce no hover */
+        .carousel img:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--carousel-shadow-hover);
+        }
+
+        /* ===== SETAS DE NAVEGAÇÃO ===== */
+        .carousel-arrow {
+            position: relative;
+            top: auto;
+            transform: none;
+            background: var(--carousel-arrow-bg);
+            color: var(--carousel-arrow-color);
+            border: none;
+            font-size: 20px;
+            width: var(--carousel-arrow-size);
+            height: var(--carousel-arrow-size);
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: all var(--carousel-transition);
+            box-shadow: var(--carousel-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--carousel-arrow-hover-bg);
+            color: var(--carousel-arrow-hover-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.left {
+            margin-right: 20px;
+        }
+
+        .carousel-arrow.right {
+            margin-left: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -0.5px;
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Indicadores de scroll */
+        .carousel-container::after,
+        .carousel-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--light-grey), transparent);
+        }
+
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--light-grey), transparent);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .convenios {
+                padding: 60px 15px;
+            }
+            
+            .carousel-container {
+                padding: 20px 40px;
+            }
+            
+            .carousel {
+                gap: var(--carousel-gap-mobile);
+            }
+            
+            .carousel img {
+                width: var(--carousel-logo-size-mobile);
+                height: var(--carousel-logo-size-mobile);
+            }
+            
+            .carousel-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            
+            .carousel-container::before,
+            .carousel-container::after {
+                width: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-container {
+                padding: 20px 30px;
+            }
+            
+            .carousel img {
+                width: 90px;
+                height: 90px;
+            }
         }
 
         /* Patient Portal Section */

@@ -78,3 +78,67 @@
         menuToggle.addEventListener('click', () => {
             navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById("carousel");
+    const next = document.getElementById("next");
+    const prev = document.getElementById("prev");
+    
+    // Configurações do carrossel
+    const SCROLL_AMOUNT = 180 + 80; // largura da imagem + gap
+    const AUTO_SCROLL_INTERVAL = 3000; // 3 segundos
+    let autoScrollTimer;
+    
+    // Função para iniciar rolagem automática
+    function startAutoScroll() {
+        stopAutoScroll(); // Para evitar múltiplos timers
+        autoScrollTimer = setInterval(() => {
+            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+                // Volta ao início suavemente
+                carousel.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                // Avança um item
+                carousel.scrollBy({ left: SCROLL_AMOUNT, behavior: "smooth" });
+            }
+        }, AUTO_SCROLL_INTERVAL);
+    }
+    
+    // Função para parar rolagem automática
+    function stopAutoScroll() {
+        if (autoScrollTimer) {
+            clearInterval(autoScrollTimer);
+        }
+    }
+    
+    // Event listeners para as setas
+    next.addEventListener("click", () => {
+        stopAutoScroll();
+        carousel.scrollBy({ left: SCROLL_AMOUNT, behavior: "smooth" });
+        startAutoScroll();
+    });
+    
+    prev.addEventListener("click", () => {
+        stopAutoScroll();
+        carousel.scrollBy({ left: -SCROLL_AMOUNT, behavior: "smooth" });
+        startAutoScroll();
+    });
+    
+    // Pausa quando o mouse estiver em cima
+    carousel.addEventListener("mouseenter", stopAutoScroll);
+    carousel.addEventListener("mouseleave", startAutoScroll);
+    
+    // Toque para dispositivos móveis
+    carousel.addEventListener("touchstart", stopAutoScroll);
+    carousel.addEventListener("touchend", () => {
+        setTimeout(startAutoScroll, 5000); // Retoma após 5 segundos
+    });
+    
+    // Inicia o carrossel automático
+    startAutoScroll();
+    
+    // Reset no resize da janela
+    window.addEventListener('resize', function() {
+        stopAutoScroll();
+        setTimeout(startAutoScroll, 1000);
+    });
+});
