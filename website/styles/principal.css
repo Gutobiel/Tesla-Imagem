@@ -593,115 +593,66 @@
             box-shadow: var(--carousel-shadow-hover);
         }
 
-        /* ===== SETAS DE NAVEGAÇÃO ===== */
-        .carousel-arrow {
-            position: relative;
-            top: auto;
-            transform: none;
-            background: var(--carousel-arrow-bg);
-            color: var(--carousel-arrow-color);
-            border: none;
-            font-size: 20px;
-            width: var(--carousel-arrow-size);
-            height: var(--carousel-arrow-size);
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 10;
-            transition: all var(--carousel-transition);
-            box-shadow: var(--carousel-shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Botões de navegação */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 
-        .carousel-arrow:hover {
-            background: var(--carousel-arrow-hover-bg);
-            color: var(--carousel-arrow-hover-color);
-            transform: translateY(-50%) scale(1.1);
-        }
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
 
-        .carousel-arrow.left {
-            margin-right: 20px;
-        }
+    border: none;
+    background-color: var(--tesla-blue);
+    color: #fff;
 
-        .carousel-arrow.right {
-            margin-left: 20px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: -0.5px;
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            margin: 20px auto 0;
-            border-radius: 2px;
-        }
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1;
 
-        /* Indicadores de scroll */
-        .carousel-container::after,
-        .carousel-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 60px;
-            pointer-events: none;
-            z-index: 5;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .carousel-container::after {
-            right: 0;
-            background: linear-gradient(to left, var(--light-grey), transparent);
-        }
+    cursor: pointer;
+    z-index: 10;
 
-        .carousel-container::before {
-            left: 0;
-            background: linear-gradient(to right, var(--light-grey), transparent);
-        }
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+}
 
-        /* ===== RESPONSIVIDADE ===== */
-        @media (max-width: 768px) {
-            .convenios {
-                padding: 60px 15px;
-            }
-            
-            .carousel-container {
-                padding: 20px 40px;
-            }
-            
-            .carousel {
-                gap: var(--carousel-gap-mobile);
-            }
-            
-            .carousel img {
-                width: var(--carousel-logo-size-mobile);
-                height: var(--carousel-logo-size-mobile);
-            }
-            
-            .carousel-arrow {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-            }
-            
-            .carousel-container::before,
-            .carousel-container::after {
-                width: 40px;
-            }
-        }
+/* Posições */
+.arrow.left {
+    left: -24px;
+}
 
-        @media (max-width: 480px) {
-            .carousel-container {
-                padding: 20px 30px;
-            }
-            
-            .carousel img {
-                width: 90px;
-                height: 90px;
-            }
-        }
+.arrow.right {
+    right: -24px;
+}
+
+/* Hover */
+.arrow:hover {
+    background-color: var(--navy-blue);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus (acessibilidade) */
+.arrow:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 2px;
+}
+
+/* Desabilitado (se você usar JS futuramente) */
+.arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
 
         /* Patient Portal Section */
         .patient-portal {
