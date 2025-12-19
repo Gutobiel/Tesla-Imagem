@@ -594,49 +594,55 @@
         }
 
         /* ===== SETAS DE NAVEGAÇÃO ===== */
-        .carousel-arrow {
+        .carousel-container {
             position: relative;
-            top: auto;
-            transform: none;
-            background: var(--carousel-arrow-bg);
-            color: var(--carousel-arrow-color);
-            border: none;
-            font-size: 20px;
-            width: var(--carousel-arrow-size);
-            height: var(--carousel-arrow-size);
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 10;
-            transition: all var(--carousel-transition);
-            box-shadow: var(--carousel-shadow);
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 20px 60px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0199A4;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(1,41,66,0.08);
+            cursor: pointer;
+            z-index: 20;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            padding: 0;
+        }
+        .carousel-arrow svg circle {
+            transition: fill 0.2s;
+            fill: #0199A4;
+        }
+
         .carousel-arrow:hover {
-            background: var(--carousel-arrow-hover-bg);
-            color: var(--carousel-arrow-hover-color);
-            transform: translateY(-50%) scale(1.1);
+            background: #017a8a;
+            box-shadow: 0 4px 16px rgba(1,41,66,0.16);
+            transform: translateY(-50%) scale(1.08);
+        }
+        .carousel-arrow:hover svg circle {
+            fill: #017a8a;
         }
 
         .carousel-arrow.left {
-            margin-right: 20px;
+            left: 10px;
         }
 
         .carousel-arrow.right {
-            margin-left: 20px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: -0.5px;
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            margin: 20px auto 0;
-            border-radius: 2px;
+            right: 10px;
         }
 
         /* Indicadores de scroll */
@@ -664,31 +670,30 @@
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 768px) {
             .convenios {
-                padding: 60px 15px;
+                padding: 60px 10px;
             }
-            
             .carousel-container {
-                padding: 20px 40px;
+                padding: 20px 10px;
             }
-            
-            .carousel {
-                gap: var(--carousel-gap-mobile);
-            }
-            
-            .carousel img {
-                width: var(--carousel-logo-size-mobile);
-                height: var(--carousel-logo-size-mobile);
-            }
-            
             .carousel-arrow {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
+                width: 36px;
+                height: 36px;
+                left: 0;
+                right: 0;
             }
-            
+            .carousel-arrow.left {
+                left: 0;
+            }
+            .carousel-arrow.right {
+                right: 0;
+            }
+            .carousel img {
+                width: 60px;
+                height: 60px;
+            }
             .carousel-container::before,
             .carousel-container::after {
-                width: 40px;
+                width: 20px;
             }
         }
 
