@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tesla - Diagnóstico por Imagem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/assets/tesla-diagnostico-por-imagems-favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/principal.css">
+    <link rel="stylesheet" href="/website/styles/principal.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="/scripts/principal.js" defer></script>
+    <script src="/website/scripts/principal.js" defer></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
 <body>
@@ -29,8 +32,8 @@
                 <li><a href="#equipe">Equipe</a></li>                
             </ul>
             <div class="nav-cta-buttons">
-                <a href="#agendar" class="btn btn-secondary">Agendar Exame</a>
-                <a href="#paciente" class="btn btn-primary">Área do Paciente</a>
+                <a href="https://api.whatsapp.com/send?phone=5561985695745&text=Quero%20agendar%20um%20exame!" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Agendar Exame</a>
+                <a href="https://netpacs.teslaimagem.com.br/Netpacs-paciente/#/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Área do Paciente</a>
             </div>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -51,8 +54,8 @@
             equipamentos de última geração. Assim garantimos laudos assertivos e 
             extremamente confiáveis.</p>
             <div class="hero-buttons">
-                <a href="#agendar" class="btn btn-secondary btn-large" data-aos="fade-right" data-aos-delay="800" >Agendar Exame</a>
-                <a href="https://netpacs.teslaimagem.com.br/Netpacs-paciente/#/" class="btn btn-primary btn-large" data-aos="fade-left"data-aos-delay="800">Área do Paciente</a>
+                <a href="https://api.whatsapp.com/send?phone=5561985695745&text=Quero%20agendar%20um%20exame!" class="btn btn-secondary btn-large" data-aos="fade-right" data-aos-delay="800" target="_blank" rel="noopener noreferrer">Agendar Exame</a>
+                <a href="https://netpacs.teslaimagem.com.br/Netpacs-paciente/#/" class="btn btn-primary btn-large" data-aos="fade-left"data-aos-delay="800" target="_blank" rel="noopener noreferrer">Área do Paciente</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -67,7 +70,18 @@
         <div class="section-container" data-aos="fade-up" data-aos-delay="100">
             <h2 class="section-title">Uma clínica moderna com excelência em atendimento</h2>
             <div class="about-content">
-                <div class="about-image"></div>
+                <div class="about-image">
+                    <div class="about-carousel">
+                        <img src="/assets/TSL2_0014.jpg" class="about-slide active" alt="Tesla Clínica 1">
+                        <img src="/assets/tsl.jpg" class="about-slide" alt="Tesla Clínica 2">
+                        <img src="/assets/tesla-1.jpg" class="about-slide" alt="Tesla Clínica 3">
+                        <div class="about-carousel-dots">
+                            <span class="about-dot active" data-slide="0"></span>
+                            <span class="about-dot" data-slide="1"></span>
+                            <span class="about-dot" data-slide="2"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="about-text">
                     <h3>Compromisso com a sua saúde</h3>
                     <p>A Tesla Imagem é uma clínica moderna com equipamentos de última geração e atendimento de excelência. Com cabines de atendimento individualizadas e exames com horário marcado, pensamos em todos os detalhes para proporcionar a melhor experiência possível.</p>
@@ -87,33 +101,27 @@
             <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Nossos Serviços de Diagnóstico por Imagem</h2>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2v-4h4v-2h-4V7h-2v4H7v2h4z"/>
-                        </svg>
+                    <div class="service-image">
+                        <img src="/assets/ressonancia-1-scaled(1).jpg" alt="Ressonância">
                     </div>
                     <h3>Ressonância Magnética</h3>
                     <p>Exame de diagnóstico por imagem utilizando campo magnético para produzir imagens em alta definição dos órgãos, sem radiação ionizante.</p>
                     <a href="#" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2zm0-10h2v6h-2z"/>
-                        </svg>
+                    <div class="service-image">
+                        <img src="/assets/tomografia-2-scaled.jpg" alt="Tomografia Computadorizada">
                     </div>
                     <h3>Tomografia Computadorizada</h3>
-                    <p>Utiliza raios X processados por supercomputador para obter imagens detalhadas de partes internas do corpo.</p>
+                    <p>Semelhante ao raio X, são usadas as mesmas ondas de raios para obter imagens de partes internas do paciente, imagens essas processadas por um supercomputador. </p>
                     <a href="#" class="service-link">Saiba mais →</a>
                 </div>
                 <div class="service-card"data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
+                    <div class="service-image">
+                        <img src="/assets/ultrassonografia-tesla.jpg" alt="Ultrassonografia">
                     </div>
                     <h3>Ultrassonografia</h3>
-                    <p>Exame que utiliza ondas sonoras de alta frequência para visualizar órgãos e estruturas internas em tempo real.</p>
+                    <p>Método que utiliza o eco gerado através de ondas sonoras de alta frequência para visualizar em tempo real, as estruturas internas do organismo. </p>
                     <a href="#" class="service-link">Saiba mais →</a>
                 </div>
                 <!-- <div class="service-card" data-aos="fade-up" data-aos-delay="300">
@@ -150,17 +158,65 @@
         </div>
     </section>
 
-    <!-- Scheduling Section -->
-    <section class="scheduling" id="contato">
-        <div class="section-container" data-aos="fade-down">
-            <div class="scheduling-icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
-                </svg>
+    <!-- Convenios Section -->
+    <section class="convenios" id="convenios">
+        <h2>PLANOS QUE ATENDEMOS</h2>
+        <p>Conheça a lista de empresas conveniadas na nossa clínica. Se você tem dúvidas sobre seu convênio entre em contato com a gente.</p>
+
+        <div class="carousel-container">
+            <button class="arrow left" id="prev" aria-label="Convênio anterior">
+                &#10094;
+            </button>
+
+            <div class="carousel" id="carousel">
+                <img src="../../../assets/convenios/ALLIANZ-150x150.jpg" alt="Allianz">
+                <img src="../../../assets/convenios/ASSEFAZ-150x150.jpg" alt="Assefaz">
+                <img src="../../../assets/convenios/BACEN-150x150.jpg" alt="Bacen">
+                <img src="../../../assets/convenios/CAESAN-150x150.jpg" alt="Caesan">
+                <img src="../../../assets/convenios/CAMED-150x150.jpg" alt="Camed">
+                <img src="../../../assets/convenios/CAPESESP-150x150.jpg" alt="Capese">
+                <img src="../../../assets/convenios/CAREPLUS-150x150.jpg" alt="Careplus">
+                <img src="../../../assets/convenios/CASEC-150x150.jpg" alt="Casec">
+                <img src="../../../assets/convenios/CASEMBRAPA-150x150.jpg" alt="Casembrapa">
+                <img src="../../../assets/convenios/CASSI-150x150.jpg" alt="Cassi">
+                <img src="../../../assets/convenios/CNTI-Confederacao-Nacional-dos-Trabalhadores-na-Industria-150x150.jpg" alt="CNTI">
+                <img src="../../../assets/convenios/CONAB-150x150.jpg" alt="CONAB">
+                <img src="../../../assets/convenios/E-VIDA-150x150.jpg" alt="E-Vida">
+                <img src="../../../assets/convenios/FAPES-BNDES-150x150.jpg" alt="FAPES BNDES">
+                <img src="../../../assets/convenios/FASCAL-150x150.jpg" alt="Fascal">
+                <img src="../../../assets/convenios/FUNSA-AERONATICA-150x150.jpg" alt="FunSa Aeronáutica">
+                <img src="../../../assets/convenios/FUSEX-150x150.jpg" alt="Fusex">
+                <img src="../../../assets/convenios/GRAVIA-150x150.jpg" alt="Gravia">
+                <img src="../../../assets/convenios/INFRAERO-150x150.jpg" alt="Infrarro">
+                <img src="../../../assets/convenios/IRB-BRASILRE-150x150.jpg" alt="IRB Brasil Re">
+                <img src="../../../assets/convenios/LIFE-EMPRESARIAL-150x150.jpg" alt="Life Empresarial">
+                <img src="../../../assets/convenios/NOTREDAME-INTERMEDICA-150x150.jpg" alt="NotreDame Intermédica">
+                <img src="../../../assets/convenios/OMNINT-150x150.jpg" alt="Omnint">
+                <img src="../../../assets/convenios/PETROBRAS-DISTRIBUIDORA-150x150.jpg" alt="Petrobras Distribuidora">
+                <img src="../../../assets/convenios/PETROBRAS-PETROLEO-150x150.jpg" alt="Petrobras">
+                <img src="../../../assets/convenios/Plan-assiste-MPDFT-150x150.jpg" alt="Plan assiste MPDFT">
+                <img src="../../../assets/convenios/PLAN-ASSISTE-MPF-150x150.jpg" alt="Plan assiste MPF">
+                <img src="../../../assets/convenios/PLAN-ASSISTE-MPM-150x150.jpg" alt="Plan assiste MPM">
+                <img src="../../../assets/convenios/PLAN-ASSISTE-MPT-150x150.jpg" alt="Plan assiste MPT">
+                <img src="../../../assets/convenios/PLAS-JMU-JUSTICA-MILITAR-DA-UNIAO-150x150.jpg" alt="Plas JMU">
+                <img src="../../../assets/convenios/POSTAL-SAUDE-150x150.jpg" alt="Postal Saúde">
+                <img src="../../../assets/convenios/PROASA-150x150.jpg" alt="Proasa">
+                <img src="../../../assets/convenios/REAL-GRANDEZA-150x150.jpg" alt="Real Grandeza">
+                <img src="../../../assets/convenios/SAUDE-CAIXA-150x150.jpg" alt="Saúde Caixa">
+                <img src="../../../assets/convenios/SEGUROS-UNIMED-150x150.jpg" alt="Seguros Unimed">
+                <img src="../../../assets/convenios/SERPRO-150x150.jpg" alt="Serpro">
+                <img src="../../../assets/convenios/STF-MED-SUPREMO-TRIBUNAL-FEDERAL-150x150.jpg" alt="STF Med">
+                <img src="../../../assets/convenios/STJ-SUPREMO-TRIBUNAL-DE-JUSTICA-150x150.jpg" alt="STJ">
+                <img src="../../../assets/convenios/TRE-TRIBUNAL-REGIONAL-ELEITORAL-150x150.jpg" alt="TRE">
+                <img src="../../../assets/convenios/TRF-TRIBUNAL-REGIONAL-FEDERAL-150x150.jpg" alt="TRF">
+                <img src="../../../assets/convenios/TRT-TRIBUNAL-REGIONAL-DO-TRABALHO-150x150.jpg" alt="TRT">
+                <img src="../../../assets/convenios/UNAFISCO-150x150.jpg" alt="Unafisco">
+                <img src="../../../assets/convenios/VALEC-150x150.jpg" alt="Valec">
             </div>
-            <h2 class="section-title">Agende seu exame com facilidade</h2>
-            <p>Marque seu exame de forma rápida e conveniente. Nossa equipe está pronta para atendê-lo.</p>
-            <a href="#" class="btn btn-large"data-aos="fade-up" data-aos-delay="300">Agendar Agora</a>
+
+            <button class="arrow right" id="next" aria-label="Próximo convênio">
+                &#10095;
+            </button>
         </div>
     </section>
 
@@ -240,6 +296,67 @@
         </div>
     </section>
 
+
+        <!-- Convenios Section (substitui scheduling) -->
+            <section class="convenios" id="convenios">
+                <div class="section-container" data-aos="fade-down">
+                    <h2 class="section-title">Convênios Atendidos</h2>
+                    <div class="carousel-container">
+                        <button class="arrow left" id="prev" aria-label="Convênio anterior">
+                            <svg width="36" height="36" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#0199A4"/><path d="M15.5 19l-7-7 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                        </button>
+                        <div class="carousel" id="carousel">
+                            <img src="../../../assets/convenios/ALLIANZ-150x150.jpg" alt="Allianz">
+                            <img src="../../../assets/convenios/ASSEFAZ-150x150.jpg" alt="Assefaz">
+                            <img src="../../../assets/convenios/BACEN-150x150.jpg" alt="Bacen">
+                            <img src="../../../assets/convenios/CAESAN-150x150.jpg" alt="Caesan">
+                            <img src="../../../assets/convenios/CAMED-150x150.jpg" alt="Camed">
+                            <img src="../../../assets/convenios/CAPESESP-150x150.jpg" alt="Capese">
+                            <img src="../../../assets/convenios/CAREPLUS-150x150.jpg" alt="Careplus">
+                            <img src="../../../assets/convenios/CASEC-150x150.jpg" alt="Casec">
+                            <img src="../../../assets/convenios/CASEMBRAPA-150x150.jpg" alt="Casembrapa">
+                            <img src="../../../assets/convenios/CASSI-150x150.jpg" alt="Cassi">
+                            <img src="../../../assets/convenios/CNTI-Confederacao-Nacional-dos-Trabalhadores-na-Industria-150x150.jpg" alt="CNTI">
+                            <img src="../../../assets/convenios/CONAB-150x150.jpg" alt="CONAB">
+                            <img src="../../../assets/convenios/E-VIDA-150x150.jpg" alt="E-Vida">
+                            <img src="../../../assets/convenios/FAPES-BNDES-150x150.jpg" alt="FAPES BNDES">
+                            <img src="../../../assets/convenios/FASCAL-150x150.jpg" alt="Fascal">
+                            <img src="../../../assets/convenios/FUNSA-AERONATICA-150x150.jpg" alt="FunSa Aeronáutica">
+                            <img src="../../../assets/convenios/FUSEX-150x150.jpg" alt="Fusex">
+                            <img src="../../../assets/convenios/GRAVIA-150x150.jpg" alt="Gravia">
+                            <img src="../../../assets/convenios/INFRAERO-150x150.jpg" alt="Infrarro">
+                            <img src="../../../assets/convenios/IRB-BRASILRE-150x150.jpg" alt="IRB Brasil Re">
+                            <img src="../../../assets/convenios/LIFE-EMPRESARIAL-150x150.jpg" alt="Life Empresarial">
+                            <img src="../../../assets/convenios/NOTREDAME-INTERMEDICA-150x150.jpg" alt="NotreDame Intermédica">
+                            <img src="../../../assets/convenios/OMNINT-150x150.jpg" alt="Omnint">
+                            <img src="../../../assets/convenios/PETROBRAS-DISTRIBUIDORA-150x150.jpg" alt="Petrobras Distribuidora">
+                            <img src="../../../assets/convenios/PETROBRAS-PETROLEO-150x150.jpg" alt="Petrobras">
+                            <img src="../../../assets/convenios/Plan-assiste-MPDFT-150x150.jpg" alt="Plan assiste MPDFT">
+                            <img src="../../../assets/convenios/PLAN-ASSISTE-MPF-150x150.jpg" alt="Plan assiste MPF">
+                            <img src="../../../assets/convenios/PLAN-ASSISTE-MPM-150x150.jpg" alt="Plan assiste MPM">
+                            <img src="../../../assets/convenios/PLAN-ASSISTE-MPT-150x150.jpg" alt="Plan assiste MPT">
+                            <img src="../../../assets/convenios/PLAS-JMU-JUSTICA-MILITAR-DA-UNIAO-150x150.jpg" alt="Plas JMU">
+                            <img src="../../../assets/convenios/POSTAL-SAUDE-150x150.jpg" alt="Postal Saúde">
+                            <img src="../../../assets/convenios/PROASA-150x150.jpg" alt="Proasa">
+                            <img src="../../../assets/convenios/REAL-GRANDEZA-150x150.jpg" alt="Real Grandeza">
+                            <img src="../../../assets/convenios/SAUDE-CAIXA-150x150.jpg" alt="Saúde Caixa">
+                            <img src="../../../assets/convenios/SEGUROS-UNIMED-150x150.jpg" alt="Seguros Unimed">
+                            <img src="../../../assets/convenios/SERPRO-150x150.jpg" alt="Serpro">
+                            <img src="../../../assets/convenios/STF-MED-SUPREMO-TRIBUNAL-FEDERAL-150x150.jpg" alt="STF Med">
+                            <img src="../../../assets/convenios/STJ-SUPREMO-TRIBUNAL-DE-JUSTICA-150x150.jpg" alt="STJ">
+                            <img src="../../../assets/convenios/TRE-TRIBUNAL-REGIONAL-ELEITORAL-150x150.jpg" alt="TRE">
+                            <img src="../../../assets/convenios/TRF-TRIBUNAL-REGIONAL-FEDERAL-150x150.jpg" alt="TRF">
+                            <img src="../../../assets/convenios/TRT-TRIBUNAL-REGIONAL-DO-TRABALHO-150x150.jpg" alt="TRT">
+                            <img src="../../../assets/convenios/UNAFISCO-150x150.jpg" alt="Unafisco">
+                            <img src="../../../assets/convenios/VALEC-150x150.jpg" alt="Valec">
+                        </div>
+                        <button class="arrow right" id="next" aria-label="Próximo convênio">
+                            <svg width="36" height="36" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#0199A4"/><path d="M8.5 5l7 7-7 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
     <!-- Contact Section -->
     <section class="contact" id="unidade">
         <div class="section-container" data-aos="fade-up">
@@ -255,7 +372,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Endereço</h4>
-                            <p>Rua Exemplo, 123 - Centro<br>São Paulo - SP</p>
+                            <p>Centro Clínico Cléo Otávio Via W1 Norte <br> Sala 7 & 8, <br>Brasília - DF</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -266,7 +383,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>E-mail</h4>
-                            <p>contato@teslaimagem.com.br</p>
+                            <p>teslabsb@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -276,14 +393,25 @@
                             </svg>
                         </div>
                         <div class="contact-details">
-                            <h4>Telefone</h4>
-                            <p>(11) 1234-5678<br>Segunda a Sexta: 7h às 19h<br>Sábado: 7h às 12h</p>
+                            <h4>Telefones</h4>
+                            <p>(61) 3326-9456 <br>(61) 98158-2323</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sexta: 7h às 00h<br>Sábado: 8h às 23h <br>Domingo: 9h às 13h</p>
                         </div>
                     </div>
                 </div>
-                <div class="location-map">
-                    📍 Localização
-                </div>
+
+                    <div class="embed-map-responsive"><div class="embed-map-container"><iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=%20Tesla%20Diagn%C3%B3stico%20por%20Imagem&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://sprunkiretake.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">Sprunki</a></div><style>.embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;border-radius:12px;overflow:hidden;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;border-radius:12px;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;border-radius:12px;}</style></div>
+
             </div>
         </div>
     </section>
@@ -325,10 +453,11 @@
             <div class="footer-column">
                 <h4>Contato</h4>
                 <ul class="footer-links">
-                    <li>Rua Exemplo, 123 - Centro</li>
-                    <li>São Paulo - SP</li>
-                    <li><a href="tel:1112345678">(11) 1234-5678</a></li>
-                    <li><a href="mailto:contato@teslaimagem.com.br">contato@teslaimagem.com.br</a></li>
+                    <li>Centro Clínico Cléo Otávio</li> 
+                    <li>W1 Norte - Asa Norte</li> 
+                    <li>Brasília - DF</li>
+                    <li><a href="tel:(61) 3326-9456">(61) 3326-9456</a></li>
+                    <li><a href="mailto:teslabsb@gmail.com">teslabsb@gmail.com</a></li>
                 </ul>
             </div>
         </div>
