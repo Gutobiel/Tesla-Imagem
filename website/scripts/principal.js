@@ -1,3 +1,28 @@
+    // Carrossel da seção About
+    let aboutCurrent = 0;
+    const aboutSlides = document.querySelectorAll('.about-slide');
+    const aboutDots = document.querySelectorAll('.about-dot');
+
+    function showAboutSlide(idx) {
+        aboutSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === idx);
+        });
+        aboutDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === idx);
+        });
+        aboutCurrent = idx;
+    }
+
+    function nextAboutSlide() {
+        let next = (aboutCurrent + 1) % aboutSlides.length;
+        showAboutSlide(next);
+    }
+
+    aboutDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => showAboutSlide(i));
+    });
+
+    setInterval(nextAboutSlide, 5000);
     AOS.init();
  
         // Navbar scroll effect

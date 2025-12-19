@@ -1,6 +1,4 @@
-        :root {
-            /*--navy-blue: #009688;
-            --tesla-blue: #00b7a4;*/
+:root {
 
             --navy-blue: #0199A4;
             --tesla-blue: #00264d;
@@ -212,15 +210,16 @@
         }
 
         .hero-background {
+            background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url('/assets/TSL2_0014.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://pplx-res.cloudinary.com/image/upload/v1755145359/pplx_project_search_images/0fe572701f8d4b3194c3c5a42665ed76870fa7ca.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            min-height: 560px; /* ajuste se quiser mais/menos altura */
         }
 
         .hero-overlay {
@@ -339,9 +338,17 @@
             border-radius: 2px;
         }
 
+        .about .section-title {
+          color: var(--navy-blue);
+        }
+        .about .section-title::after {
+          background-color: #ffffff;
+        }
+
         /* About Section */
         .about {
-            background-color: var(--white);
+            background: linear-gradient(180deg, #01203F 80%, #01345C 100%);
+            color: #fff;
         }
 
         .about-content {
@@ -354,11 +361,59 @@
         .about-image {
             width: 100%;
             height: 400px;
-            background-image: url('https://pplx-res.cloudinary.com/image/upload/v1755955255/pplx_project_search_images/e08a02af7df13162532a4d7d071c6a0c1d008a88.png');
-            background-size: cover;
-            background-position: center;
+            background: #011a2c;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-slide {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.7s;
+        }
+        .about-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .about-carousel-dots {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .about-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s, background 0.3s;
+        }
+        .about-dot.active {
+            opacity: 1;
+            background: var(--tesla-blue);
+            width: 30px;
+            border-radius: 6px;
         }
 
         .about-text h3 {
@@ -372,7 +427,7 @@
         .about-text p {
             font-size: 17px;
             line-height: 1.8;
-            color: var(--text-grey);
+            color: #e0e0e0;
             margin-bottom: 20px;
         }
 
@@ -412,34 +467,17 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding: 0;
+            overflow: hidden;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--metallic-silver);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .service-icon {
-            border-color: var(--tesla-blue);
-            background-color: rgba(0, 159, 227, 0.1);
-        }
-
-        .service-icon svg {
-            width: 32px;
-            height: 32px;
-            fill: var(--navy-blue);
         }
 
         .service-card h3 {
@@ -462,6 +500,17 @@
             margin-bottom: 20px;
         }
 
+        .service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  display: block;
+  margin-bottom: 0;
+}
         .service-link {
             color: var(--tesla-blue);
             text-decoration: none;
@@ -471,6 +520,10 @@
             align-items: center;
             gap: 5px;
             transition: gap 0.3s ease;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            padding: 0 30px;
         }
 
         .service-link:hover {
