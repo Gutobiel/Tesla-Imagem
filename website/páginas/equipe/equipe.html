@@ -1,308 +1,715 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nossa Equipe | Tesla Imagem</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossa Equipe | Tesla Imagem - Diagnóstico por Imagem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="/assets/tesla-diagnostico-por-imagems-favicon.png" type="image/png">
+  <link rel="stylesheet" href="/website/styles/principal.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="/website/scripts/principal.js" defer></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <style>
-    :root {
-      --tesla-blue: #009fe3;
-      --navy: #00264d;
-      --white: #fff;
-      --gray-light: #f4f9fc;
-      --gray-medium: #6f7b87;
-    }
-    body {
-      margin:0;
-      font-family: 'Poppins', Arial, sans-serif;
-      background: var(--gray-light);
-      color: var(--navy);
-    }
-    header {
-      background: var(--white);
-      padding: 2rem 0 0.7rem 0;
+    /* Equipe Page Specific Styles */
+    .equipe-hero {
+      background: linear-gradient(180deg, #01203F 0%, #01345C 100%);
+      padding: 120px 40px 50px;
       text-align: center;
     }
-    .logo {
-      font-size: 2.1rem;
-      color: var(--tesla-blue);
+
+    .equipe-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
       font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 0.6rem;
+      color: #ffffff;
+      margin-bottom: 15px;
     }
-    .action-btns {
+
+    .equipe-hero p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      background: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .filter-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
-      margin-bottom: 0.7rem;
     }
-    .btn {
-      padding: 0.9rem 2rem;
-      border-radius: 30px;
+
+    .filter-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
       font-weight: 600;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      transition: box-shadow .2s, background .16s;
-      box-shadow: 0 2px 11px rgba(0, 159, 227, 0.09);
+      color: var(--navy-blue);
     }
-    .btn-primary {
-      background: var(--tesla-blue);
-      color: var(--white);
-      outline: none;
-      animation: pulse 2.8s infinite;
+
+    .filter-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .btn-secondary {
-      background: var(--white);
-      color: var(--navy);
-      border: 2px solid var(--navy);
-    }
-    @keyframes pulse {
-      0%,100% { box-shadow: 0 0 0 0 var(--tesla-blue); }
-      60% { box-shadow: 0 0 0 12px rgba(0, 159, 227, 0.13);}
-    }
-    .hero {
-      background: var(--white);
-      padding: 2.5rem 2vw 2rem 2vw;
-      text-align: center;
-      box-shadow: 0 2px 32px rgba(0,38,77,0.06);
-      border-radius: 0 0 18px 18px;
-    }
-    .hero-title {
-      font-size: 2.7rem;
+
+    .filter-btn {
+      padding: 8px 18px;
+      border: 2px solid var(--tesla-blue);
+      background: transparent;
       color: var(--tesla-blue);
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      letter-spacing: 2px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
     }
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--gray-medium);
-      margin-bottom: 2.4rem;
-      line-height: 1.4;
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--tesla-blue);
+      color: #ffffff;
     }
+
+    .team-section {
+      background: #f8f9fa;
+      padding: 60px 40px 80px;
+    }
+
+    .team-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem 1.2rem;
-      justify-content: center;
-      padding: 2.5rem 3vw 1.9rem 3vw;
-      background: linear-gradient(90deg, var(--white) 75%, var(--gray-light) 100%);
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
     }
+
     .team-card {
-      background: var(--white);
+      background: #ffffff;
       border-radius: 16px;
-      box-shadow: 0 8px 28px rgba(0,159,227,0.10), 0 1px 2px rgba(0,38,77,0.09);
-      text-align: center;
-      padding-bottom: 1.2rem;
-      padding-top: 0.6rem;
-      transition: box-shadow 0.3s, transform 0.28s;
-      position: relative;
-      cursor: pointer;
-    }
-    .team-card:hover {
-      box-shadow: 0 12px 32px rgba(0,159,227,0.18), 0 2px 3px rgba(0,38,77,0.13);
-      transform: translateY(-2px) scale(1.03);
-    }
-    .team-photo {
-      width: 124px;
-      height: 124px;
-      margin: 1rem auto 0.7rem auto;
-      display: block;
-      border-radius: 60px;
-      background: linear-gradient(120deg, var(--gray-light) 80%, var(--white) 100%);
-      box-shadow: 0 4px 22px rgba(0,159,227,0.08);
-      position: relative;
       overflow: hidden;
-      border: 2px solid var(--tesla-blue);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
-    /* Silhouette SVG inside */
-    .team-photo svg {
-      display: block;
-      margin: auto;
-      width: 100px;
-      height: 100px;
-      fill: url(#avatar-gradient);
+
+    .team-card.hidden {
+      display: none;
     }
-    .team-name {
-      font-size: 1.08rem;
-      color: var(--navy);
-      font-weight: 600;
-      margin: 0.15rem 0 0.32rem 0;
-      letter-spacing: 1px;
-      transition: color .21s;
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 159, 227, 0.15);
     }
-    .team-card:hover .team-name {
-      color: var(--tesla-blue);
-    }
-    .team-role {
-      color: var(--gray-medium);
-      font-size: 0.98rem;
-      font-weight: 400;
-      margin-bottom: 0.7rem;
-      padding: 0 0.4rem;
-    }
-    .actions-end {
+
+    .team-card-image {
       width: 100%;
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .team-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .team-card:hover .team-card-image img {
+      transform: scale(1.05);
+    }
+
+    .team-card-image .placeholder-avatar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e8f4fc 0%, #d1e8f5 100%);
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 1.1rem;
-      margin: 2.7rem 0 2.2rem 0;
     }
-    
-    /* Footer */
-    footer {
-      background: var(--navy);
-      color: var(--white);
-      text-align: center;
-      padding: 2rem 2vw 1rem 2vw;
-      margin-top: 2rem;
-      border-radius: 24px 24px 0 0;
-      font-size: 1.04em;
-      letter-spacing: 1px;
+
+    .team-card-image .placeholder-avatar svg {
+      width: 80px;
+      height: 80px;
+      fill: var(--tesla-blue);
+      opacity: 0.5;
     }
-    .footer-logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--white);
+
+    .team-card-content {
+      padding: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .team-card-name {
       font-family: 'Poppins', sans-serif;
-      margin-bottom: 0.3rem;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy-blue);
+      margin-bottom: 5px;
     }
-    .footer-contact {
-      opacity: 0.84;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+
+    .team-card-crm {
+      font-size: 13px;
+      color: var(--tesla-blue);
+      font-weight: 600;
+      margin-bottom: 12px;
     }
-    .footer-social {
-      display: flex;
-      gap: 1.3rem;
-      justify-content: center;
-      margin-bottom: 0.9rem;
+
+    .team-card-specialty {
+      font-size: 14px;
+      color: #6f7b87;
+      line-height: 1.6;
+      flex: 1;
     }
-    .footer-social a { color: var(--white); transition: color .13s;}
-    .footer-social a:hover { color: var(--tesla-blue);}
-    .footer-copyright { font-size: .87rem; opacity: .66; }
-    @media(max-width: 900px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-title { font-size: 2rem;}
+
+    .team-card-specialty ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
-    @media(max-width: 700px) {
-      .team-grid { grid-template-columns: 1fr; }
-      .team-photo { width: 82px; height: 82px;}
-      footer { border-radius: 0;}
+
+    .team-card-specialty li {
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .team-card-specialty li::before {
+      content: "•";
+      color: var(--tesla-blue);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .specialty-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--tesla-blue) 0%, #0080b8 100%);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+
+    .cta-section {
+      background: linear-gradient(180deg, #01203F 0%, #01345C 100%);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 30px;
+    }
+
+    .cta-section .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .equipe-hero {
+        padding: 120px 20px 60px;
+      }
+
+      .equipe-hero h1 {
+        font-size: 32px;
+      }
+
+      .equipe-hero p {
+        font-size: 16px;
+      }
+
+      .filter-section {
+        padding: 20px;
+      }
+
+      .team-section {
+        padding: 40px 20px 60px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 60px 20px;
+      }
+
+      .cta-section h2 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
+
 <body>
-<section class="team-section-custom" style="background: url('CAMINHO_DA_SUA_IMAGEM_DE_FUNDO.jpg') center/cover no-repeat;">
-  <div style="text-align:center; padding-top:40px; padding-bottom:12px;">
-    <div class="hero-title" style="font-size:2.1rem; color:#009fe3; font-weight:700; letter-spacing:1px; font-family:'Poppins',sans-serif;">
-      Nossa Equipe
-    </div>
-    <div class="hero-subtitle" style="color:#6f7b87; font-size:1.22rem; margin-top:12px;">
-      Profissionais com excelência, tecnologia e cuidado humano.<br>
-      Todos são especialistas reconhecidos em diagnóstico por imagem.
-    </div>
-  </div>
-  <div class="team-grid-custom">
-    <div class="employee-card">
-      <img class="employee-photo" src="FOTO_FUNCIONARIO1.jpg" alt="Dr. Fulano">
-      <div class="employee-info">
-        <div class="employee-name">Dr. Fulano de Tal</div>
-        <div class="employee-role">Radiologista</div>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container" data-aos="fade-down" data-aos-delay="300">
+      <div class="logo">
+        <a href="/website/páginas/index.html"><img src="/assets/tesla-branco.png" alt="Tesla Imagem Logo"
+            width="200px"></a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/website/páginas/index.html#sobre">Sobre</a></li>
+        <li><a href="/website/páginas/index.html#servicos">Serviços</a></li>
+        <li><a href="#equipe" class="active">Equipe</a></li>
+        <li><a href="/website/páginas/index.html#contato">Contato</a></li>
+        <li><a href="/website/páginas/index.html#unidade">Unidade</a></li>
+        <li><a href="/website/páginas/index.html#convenios">Convênios</a></li>
+      </ul>
+      <div class="nav-cta-buttons">
+        <a href="https://api.whatsapp.com/send?phone=5561985695745&text=Olá, vim pelo site da Tesla Imagem. Gostaria de agendar uma consulta!%20"
+          class="btn btn-secondary btn-with-icon" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Agendar Exame
+        </a>
+        <div class="dropdown-container">
+          <button class="btn btn-primary dropdown-toggle">Resultados</button>
+          <div class="dropdown-menu">
+            <a href="https://netpacs.teslaimagem.com.br/Netpacs-paciente/#/" target="_blank"
+              rel="noopener noreferrer">Resultados Paciente</a>
+            <a href="https://netpacs.teslaimagem.com.br/Netpacs-laudos/#/" target="_blank"
+              rel="noopener noreferrer">Área do Médico</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-    <div class="employee-card">
-      <img class="employee-photo" src="FOTO_FUNCIONARIO2.jpg" alt="Dra. Sicrana">
-      <div class="employee-info">
-        <div class="employee-name">Dra. Sicrana Exemplo</div>
-        <div class="employee-role">Ultrassonografista</div>
-      </div>
-    </div>
-    <div class="employee-card">
-      <img class="employee-photo" src="FOTO_FUNCIONARIO2.jpg" alt="Dra. Sicrana">
-      <div class="employee-info">
-        <div class="employee-name">Dra. Sicrana Exemplo</div>
-        <div class="employee-role">Ultrassonografista</div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-.team-section-custom {
-  width: 100%;
-  padding-bottom: 90px;
-  position: relative;
-  background-blend-mode: lighten;
-}
-.team-grid-custom {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 32px;
-  max-width: 1000px;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.82);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0,38,77,0.07);
-  padding: 48px 32px;
-}
-.employee-card {
-  display: flex;
-  align-items: center;
-  background: rgba(255,255,255,0.99);
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0,159,227,0.08);
-  padding: 20px 24px;
-  transition: box-shadow 0.25s, transform 0.2s;
-  position: relative;
-  cursor: pointer;
-}
-.employee-card:hover {
-  box-shadow: 0 8px 32px rgba(0,159,227,0.18);
-  transform: translateY(-2px) scale(1.025);
-}
-.employee-photo {
-  width: 86px;
-  height: 86px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 28px;
-  border: 3px solid #009fe3;
-  background: #f4f9fc;
-  box-shadow: 0 2px 8px rgba(0,159,227,0.09);
-  flex-shrink: 0;
-}
-.employee-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.employee-name {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #00264d;
-  letter-spacing: 1px;
-}
-.employee-role {
-  font-size: 1rem;
-  color: #6f7b87;
-  margin-top: 4px;
-}
-@media (max-width: 900px) {
-  .team-grid-custom {grid-template-columns: 1fr 1fr;}
-}
-@media (max-width: 600px) {
-  .team-grid-custom {grid-template-columns: 1fr;}
-  .employee-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 24px 12px;
-  }
-  .employee-photo { margin: 0 0 18px 0; }
-}
-</style>
+  </nav>
 
+  <!-- Hero Section -->
+  <section class="equipe-hero" id="equipe">
+    <div data-aos="fade-up" data-aos-delay="200">
+      <h1>Nossa Equipe</h1>
+      <p>Profissionais com excelência, tecnologia e cuidado humano. Conheça os especialistas que fazem a Tesla Imagem
+        ser referência em diagnóstico por imagem em Brasília.</p>
+    </div>
+  </section>
 
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div class="filter-container">
+      <span class="filter-label">Filtrar por especialidade:</span>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="neuro">Neurorradiologia</button>
+        <button class="filter-btn" data-filter="musculo">Músculo-esquelético</button>
+        <button class="filter-btn" data-filter="mama">Imagem da Mama</button>
+        <button class="filter-btn" data-filter="ultrassom">Ultrassonografia</button>
+        <button class="filter-btn" data-filter="torax">Tórax e Abdome</button>
+        <button class="filter-btn" data-filter="cardiaca">Imagem Cardíaca</button>
+        <button class="filter-btn" data-filter="anestesia">Anestesiologia</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-container">
+      <div class="team-grid">
+
+        <!-- Dra. Ana Karina -->
+        <div class="team-card" data-category="mama ultrassom" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dra. Ana Karina de Ataide Feitosa</h3>
+            <p class="team-card-crm">CRM-DF: 17435 / RQE: 12438</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Médica Radiologista com Atuação em Imagem da Mama</li>
+                <li>Atuação em Ultrassonografia Geral e Doppler</li>
+                <li>Pós graduação em Tomografia e Ressonância Magnética</li>
+                <li>Título de Especialista em Radiologia – CBR/AMB</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Mama | Ultrassonografia</span>
+          </div>
+        </div>
+
+        <!-- Dra. Deglia Kennia -->
+        <div class="team-card" data-category="anestesia" data-aos="fade-up" data-aos-delay="150">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dra. Deglia Kennia Rodrigues Santana</h3>
+            <p class="team-card-crm">CRM-DF: 21956</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Médica Anestesiologista</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Anestesiologia</span>
+          </div>
+        </div>
+
+        <!-- Dr. Fabrício -->
+        <div class="team-card" data-category="neuro" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dr. Fabrício Guimarães Gonçalves</h3>
+            <p class="team-card-crm">CRM-DF: 11902 / RQE: 7673</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Imagem do Sistema Nervoso, Cabeça, Pescoço e Colunas</li>
+                <li>Fellowship em Neurorradiologia</li>
+                <li>European Diploma in Neuroradiology</li>
+                <li>European Diploma in Pediatric Neuroradiology</li>
+                <li>McGill University Health Center Post Doctoral Fellow</li>
+                <li>Children's Hospital of Philadelphia Clinical Fellow</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Neurorradiologia</span>
+          </div>
+        </div>
+
+        <!-- Dr. Ivanildo -->
+        <div class="team-card" data-category="neuro" data-aos="fade-up" data-aos-delay="250">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dr. Ivanildo Castro Pereira Júnior</h3>
+            <p class="team-card-crm">CRM-DF: 21870 / RQE: 13541</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Imagem do Sistema Nervoso, Cabeça, Pescoço e Colunas</li>
+                <li>Fellowship em Neurorradiologia</li>
+                <li>Título de Especialista em Radiologia – CBR/AMB</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Neurorradiologia</span>
+          </div>
+        </div>
+
+        <!-- Dra. Larissa -->
+        <div class="team-card" data-category="ultrassom" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dra. Larissa Rávila Sacch de Oliveira</h3>
+            <p class="team-card-crm">CRM-DF: 19687 / RQE: 15191</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Ultrassonografia Geral, Doppler e Alta Resolução</li>
+                <li>Ultrassonografia da Pele e Partes Moles</li>
+                <li>Pós graduação em Ultrassonografia aplicada à Dermatologia</li>
+                <li>Título de Especialista em Radiologia – CBR/AMB</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Ultrassonografia</span>
+          </div>
+        </div>
+
+        <!-- Dr. Manoel -->
+        <div class="team-card" data-category="ultrassom" data-aos="fade-up" data-aos-delay="350">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dr. Manoel Aparecido Gomes Silva</h3>
+            <p class="team-card-crm">CRM-DF: 1914 / RQE: 6419</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Ultrassonografia Geral e Doppler</li>
+                <li>Título de Especialista em Radiologia – CBR/AMB</li>
+                <li>Ex-presidente do Colégio Brasileiro de Radiologia (2010-2012)</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Ultrassonografia</span>
+          </div>
+        </div>
+
+        <!-- Dra. Priscilla -->
+        <div class="team-card" data-category="musculo" data-aos="fade-up" data-aos-delay="400">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dra. Priscilla Piuzana Nogueira</h3>
+            <p class="team-card-crm">CRM-DF: 16914 / RQE: 11392</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Imagem do Sistema Músculo-esquelético e Coluna</li>
+                <li>Fellowship em Radiologia do Sistema Musculoesquelético</li>
+                <li>Título de Especialista em Radiologia – CBR/AMB</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Músculo-esquelético</span>
+          </div>
+        </div>
+
+        <!-- Dr. Sérgio -->
+        <div class="team-card" data-category="musculo" data-aos="fade-up" data-aos-delay="450">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dr. Sérgio Lopes Viana</h3>
+            <p class="team-card-crm">CRM-DF: 10990 / RQE: 5296</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Imagem do Sistema Músculo-esquelético e Coluna</li>
+                <li>Co-autor: Diagnóstico por Imagem em Reumatologia</li>
+                <li>Co-autor: Joint Imaging in Childhood and Adolescence</li>
+                <li>Membro da International Skeletal Society</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Músculo-esquelético</span>
+          </div>
+        </div>
+
+        <!-- Dr. Thiago -->
+        <div class="team-card" data-category="cardiaca" data-aos="fade-up" data-aos-delay="500">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dr. Thiago Nobrega Morato</h3>
+            <p class="team-card-crm">CRM-DF: 18070 / RQE: 13038</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Médico Radiologista com Atuação em Imagem Cardíaca</li>
+                <li>Título de Especialista em Radiologia – CBR/AMB</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Imagem Cardíaca</span>
+          </div>
+        </div>
+
+        <!-- Dr. Vinícius -->
+        <div class="team-card" data-category="torax ultrassom" data-aos="fade-up" data-aos-delay="550">
+          <div class="team-card-image">
+            <div class="placeholder-avatar">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+              </svg>
+            </div>
+          </div>
+          <div class="team-card-content">
+            <h3 class="team-card-name">Dr. Vinícius de Araújo Gomes</h3>
+            <p class="team-card-crm">CRM-DF: 16547 / RQE: 8085</p>
+            <div class="team-card-specialty">
+              <ul>
+                <li>Imagem do Tórax, Abdome e Pelve</li>
+                <li>Ultrassonografia Pediátrica, Geral e Doppler</li>
+                <li>Fellowship em Radiologia do Tórax, Abdome e Pelve</li>
+                <li>Membro da The Society for Paediatric Radiology</li>
+                <li>Membro da European Society of Gastrointestinal Radiology</li>
+              </ul>
+            </div>
+            <span class="specialty-tag">Tórax e Abdome | Ultrassonografia</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div data-aos="fade-up" data-aos-delay="100">
+      <h2>Agende seu exame com nossa equipe!</h2>
+      <p>Entre em contato conosco e agende hoje mesmo o seu exame.</p>
+      <a href="https://api.whatsapp.com/send?phone=5561985695745&text=Quero%20agendar%20um%20exame!"
+        class="btn btn-secondary btn-large btn-with-icon" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <div class="footer-logo"><img src="/assets/tesla-branco.png" alt="Tesla Imagem Logo" width="200px">
+        </div>
+        <p class="footer-description">Excelência e precisão em diagnósticos por imagem. Tecnologia avançada com
+          cuidado personalizado.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon" target="_blank">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/teslabsb/" class="social-icon" target="_blank">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Links Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="/website/páginas/index.html">Home</a></li>
+          <li><a href="/website/páginas/index.html#servicos">Nossos Serviços</a></li>
+          <li><a href="/website/páginas/index.html#unidade">Unidade</a></li>
+          <li><a href="/website/páginas/index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <ul class="footer-links">
+          <li>Centro Clínico Cléo Otávio</li>
+          <li>W1 Norte - Asa Norte</li>
+          <li>Brasília - DF</li>
+          <li><a href="tel:(61) 3326-9456">(61) 3326-9456</a></li>
+          <li><a href="mailto:teslabsb@gmail.com">teslabsb@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tesla Imagem. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTAO DO ZAP -->
+  <a href="https://api.whatsapp.com/send?phone=5561985695745&text=Quero%20agendar%20um%20exame!" class="btn-whatsapp"
+    target="_blank" data-aos="zoom-in-up" data-aos-delay="300">
+    <img src="/assets/whatssapp.svg" alt="Botao whatsapp">
+    <span class="tooltip-text">Fale conosco!</span>
+  </a>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const teamCards = document.querySelectorAll('.team-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+
+        const filter = button.getAttribute('data-filter');
+
+        teamCards.forEach(card => {
+          if (filter === 'todos') {
+            card.classList.remove('hidden');
+          } else {
+            const categories = card.getAttribute('data-category');
+            if (categories && categories.includes(filter)) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
