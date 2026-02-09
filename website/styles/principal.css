@@ -1489,3 +1489,24 @@ section.visible {
         margin: 0 auto;
     }
 }
+
+.swal2-popup {
+    border-radius: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+    
+.swal2-title {
+    color: --navy-blue;
+    font-weight: 700;
+}
+    
+.swal2-confirm {
+    background-color: --navy-blue !important;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-weight: 600;
+}
+    
+.swal2-confirm:hover {
+    background-color: --tesla-blue !important;
+}
