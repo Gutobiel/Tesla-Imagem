@@ -729,6 +729,22 @@ section.visible {
     transform: translateY(-5px);
     box-shadow: var(--carousel-shadow-hover);
 }
+        @keyframes slideUp {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-3px);
+            }
+        }
+.btn-convenios-ver-todos {
+    transition: all 0.3s ease;
+}
+
+.btn-convenios-ver-todos:hover {
+    animation: slideUp 0.3s ease forwards;
+    transform: translateY(-8px);
+}
 
 /* Botões de navegação */
 .arrow {
