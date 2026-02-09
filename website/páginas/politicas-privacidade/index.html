@@ -1,50 +1,384 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Política de Privacidade | Tesla Imagem</title>
-	<link rel="stylesheet" href="/website/styles/principal.css">
-	<link rel="icon" href="/assets/tesla-diagnostico-por-imagems-favicon.png" type="image/png">
-</head>
-<body>
-	<!-- Header -->
-	<nav class="navbar" id="navbar">
-		<div class="nav-container">
-			<div class="logo">
-				<a href="/website/principal.html"><img src="/assets/tesla-branco.png" alt="Tesla Imagem Logo" width="200px"></a>
-			</div>
-			<ul class="nav-menu">
-				<li><a href="/website/principal.html#sobre">Sobre</a></li>
-				<li><a href="/website/principal.html#servicos">Serviços</a></li>
-				<li><a href="/website/principal.html#convenios">Convênios</a></li>
-				<li><a href="/website/principal.html#contato">Contato</a></li>
-				<li><a href="/website/principal.html#unidade">Unidade</a></li>
-				<li><a href="/website/páginas/equipe/equipe.html">Equipe</a></li>
-			</ul>
-			<div class="nav-cta-buttons">
-				<a href="https://api.whatsapp.com/send?phone=5561981582323&text=Quero%20agendar%20um%20exame!" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Agendar Exame</a>
-				<a href="https://netpacs.teslaimagem.com.br/Netpacs-paciente/#/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Área do Paciente</a>
-			</div>
-			<div class="menu-toggle" id="menuToggle">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-	</nav>
 
-	<main class="container" style="max-width: 900px; margin: 40px auto; padding: 32px; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.07);">
-		<h1 style="font-family: 'Poppins', sans-serif; font-size: 2.2rem; color: #00264d; margin-bottom: 24px;">Política de Privacidade e Proteção de Dados</h1>
-		<section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossa Equipe | Tesla Imagem - Diagnóstico por Imagem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="/assets/tesla-diagnostico-por-imagems-favicon.png" type="image/png">
+  <link rel="stylesheet" href="/website/styles/principal.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="/website/scripts/principal.js" defer></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <style>
+    /* Política Page Specific Styles */
+    .politica-hero {
+      background: linear-gradient(135deg, rgba(1, 32, 63, 0.85) 0%, rgba(1, 52, 92, 0.85) 100%),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad"><stop offset="0%25" style="stop-color:%230F5BA6;stop-opacity:0.1" /><stop offset="100%25" style="stop-color:%230DB8D8;stop-opacity:0.05" /></linearGradient></defs><rect fill="url(%23grad)" width="1200" height="600"/><circle cx="200" cy="100" r="80" fill="%230DB8D8" opacity="0.08"/><circle cx="1000" cy="500" r="120" fill="%230F5BA6" opacity="0.08"/><path d="M 0 300 Q 300 250 600 300 T 1200 300" stroke="%230DB8D8" stroke-width="1" fill="none" opacity="0.1"/></svg>') center/cover,
+                  linear-gradient(180deg, #01203F 0%, #01345C 100%);
+      background-attachment: fixed;
+      padding: 120px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .politica-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(13, 184, 216, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(15, 91, 166, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .politica-hero > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .politica-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: slideInDown 0.8s ease-out;
+    }
+
+    .politica-hero p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Content Sections */
+    .politica-content {
+      max-width: 900px;
+	  margin-top: -30px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      background: #ffffff;
+    }
+
+    .politica-section {
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid #e8eef5;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .politica-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .politica-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #01203F;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #0DB8D8;
+      display: inline-block;
+    }
+
+    .politica-section p {
+      font-size: 16px;
+      color: #5a6b7b;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .politica-section a {
+      color: #0F5BA6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .politica-section a:hover {
+      color: #0DB8D8;
+      text-decoration: underline;
+    }
+
+    .politica-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .politica-section ul li {
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #5a6b7b;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    .politica-section ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #0DB8D8;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .politica-section b {
+      color: #01203F;
+      font-weight: 600;
+    }
+
+    /* Transition Section */
+    .politica-transition {
+      background: linear-gradient(135deg, #01203F 0%, #01345C 100%);
+      height: 2px;
+      margin: 0;
+    }
+
+    .politica-intro-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #01203F;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      .politica-intro {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+      }
+
+      .politica-intro-image {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .politica-intro-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .politica-intro-text h2 {
+        font-size: 24px;
+      }
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #01203F 0%, #01345C 100%);
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 30px;
+    }
+
+    .cta-section .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .team-card-specialty li::before {
+      content: "•";
+      color: var(--tesla-blue);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .specialty-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--tesla-blue) 0%, #0080b8 100%);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+
+    .cta-section {
+      background: linear-gradient(180deg, #01203F 0%, #01345C 100%);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 30px;
+    }
+
+    .cta-section .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .politica-hero {
+        padding: 80px 20px 60px;
+        background-attachment: scroll;
+      }
+
+      .politica-hero h1 {
+        font-size: 32px;
+      }
+
+      .politica-hero p {
+        font-size: 16px;
+      }
+
+      .politica-content {
+        padding: 60px 20px;
+      }
+
+      .politica-section {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+      }
+
+      .politica-section h2 {
+        font-size: 24px;
+      }
+
+      .cta-section {
+        padding: 60px 20px;
+      }
+
+      .cta-section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container" data-aos="fade-down" data-aos-delay="300">
+      <div class="logo">
+        <a href="/website/páginas/index.html"><img src="/assets/tesla-branco.png" alt="Tesla Imagem Logo"
+            width="200px"></a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/website/páginas/index.html#sobre">Sobre</a></li>
+        <li><a href="/website/páginas/index.html#servicos">Serviços</a></li>
+        <li><a href="#equipe" class="active">Equipe</a></li>
+        <li><a href="/website/páginas/index.html#contato">Contato</a></li>
+        <li><a href="/website/páginas/index.html#unidade">Unidade</a></li>
+        <li><a href="/website/páginas/index.html#convenios">Convênios</a></li>
+      </ul>
+      <div class="nav-cta-buttons">
+        <a href="https://api.whatsapp.com/send?phone=5561981582323&text=Olá, vim pelo site da Tesla Imagem. Gostaria de agendar uma consulta!%20"
+          class="btn btn-secondary btn-with-icon" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Agendar Exame
+        </a>
+        <div class="dropdown-container">
+          <button class="btn btn-primary dropdown-toggle">Resultados</button>
+          <div class="dropdown-menu">
+            <a href="https://netpacs.teslaimagem.com.br/Netpacs-paciente/#/" target="_blank"
+              rel="noopener noreferrer">Resultados Paciente</a>
+            <a href="https://netpacs.teslaimagem.com.br/Netpacs-laudos/#/" target="_blank"
+              rel="noopener noreferrer">Área do Médico</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+	<section class="politica-hero" id="polotica-privacidade">
+    	<div data-aos="fade-up" data-aos-delay="200">
+			<h1>Política de Privacidade e Proteção de Dados</h1>
+			<p>Transparência e segurança no tratamento dos seus dados pessoais</p>
+		</div>
+	</section>
+	<div class="politica-transition"></div>
+
+	<div class="politica-content">
+		<section class="politica-section">
 			<h2>1. Declaração de Privacidade</h2>
 			<p>A Política de Privacidade e Proteção de Dados do site da TESLA DIAGNÓSTICO POR IMAGEM LTDA. tem o objetivo de dar transparência às atividades de tratamento de dados pessoais realizadas pela clínica às práticas que adotamos para proteger a segurança dos dados pessoais de nossos usuários. Por isso, esse Aviso de Privacidade foi desenvolvido para mostrar nosso compromisso de sempre tratar os seus dados pessoais com segurança, transparência e com respeito à sua privacidade. Nesse documento você encontrará informações sobre quais dados pessoais tratamos, para quais finalidades, quais são seus direitos enquanto titular de dados e como exercê-los junto à clínica TESLA. O uso de nosso site é regido por esta Política de Privacidade e Proteção de Dados. Ao utilizar, fazer login ou acessar exames, você concorda com os termos de nossa política. As informações de nossos usuários não serão publicadas pela TESLA, nem compartilhadas com terceiros, servindo apenas para que tenhamos meios para manter o site compatível com os interesses de nossos usuários.</p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>2. Quem somos nós</h2>
 			<p>A TESLA DIAGNÓSTICO POR IMAGEM atua na prestação de serviços médicos, a partir da utilização de tecnologias de imagem para obtenção de diagnósticos, com sede em Brasília, Distrito Federal, no Setor Médico Hospitalar Norte.</p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>3. Quais dados pessoais coletamos e tratamos</h2>
 			<p>A TESLA coleta apenas os dados pessoais e sensíveis necessários para a manutenção de um relacionamento comercial com seus pacientes e que sejam indispensáveis para que seus exames sejam realizados com segurança. Os dados pessoais são coletados a partir do momento em que o usuário interage em nosso site através de formulários, comentários, depoimentos e pesquisas.</p>
 			<ul>
@@ -54,7 +388,8 @@
 				<li><b>Currículos:</b> dados acadêmicos e profissionais enviados por candidatos a vagas de emprego.</li>
 			</ul>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>4. Como seus dados pessoais serão por nós utilizados</h2>
 			<ul>
 				<li><b>Relação comercial:</b> viabilizar e manter o relacionamento comercial com pacientes e usuários.</li>
@@ -64,7 +399,8 @@
 				<li><b>Obrigações legais:</b> atendimento de obrigações legais, regulatórias e resguardo de direitos.</li>
 			</ul>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>5. Quais são seus direitos</h2>
 			<ul>
 				<li>Saber se realizamos algum tratamento com seus dados pessoais e quais dados estão sendo tratados;</li>
@@ -77,55 +413,87 @@
 			</ul>
 			<p>Para exercer seus direitos, entre em contato conosco por meio do endereço: <a href="mailto:teslabsb@gmail.com">teslabsb@gmail.com</a></p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>6. Os cookies durante a navegação no website</h2>
 			<p>Cookies são pequenos arquivos de texto enviados ao seu computador, onde eles são armazenados. Estes pequenos arquivos servem para reconhecer, acompanhar e armazenar a navegação do usuário na Internet e possibilitam que a TESLA ofereça um serviço mais de acordo com as características e interesses de seus usuários, beneficiando a sua experiência na Internet. Caso você não deseje receber cookies ou queira ajustar o seu navegador para alertá-lo cada vez que um cookie estiver sendo enviado, use as opções existentes em seu navegador para assisti-lo.</p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>7. Como mantemos seus dados seguros</h2>
 			<p>Nós adotamos políticas e procedimentos internos rigorosos que determinam como seus dados serão tratados. Adotamos, também, medidas técnicas aptas a manter os seus dados pessoais seguros e protegidos contra acessos não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou qualquer outra forma de tratamento inadequado, sempre à luz das regras aplicáveis quanto à proteção de dados e segurança da informação.</p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>8. Com quem compartilhamos seus dados</h2>
 			<p>Seus dados pessoais poderão ser compartilhados com nossos parceiros de atendimento, médicos solicitantes ou conveniados, operadoras de saúde, prestadores de serviços, instituições financeiras, órgãos reguladores e autoridades, sempre que necessário. Utilizamos instrumentos contratuais eficazes para assegurar que terceiros confiram o mesmo nível de proteção que nós.</p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>9. Por quanto tempo tratamos seus dados pessoais</h2>
 			<p>Seus dados pessoais são mantidos e armazenados pela TESLA somente pelo tempo necessário para cumprir com as finalidades para as quais foram coletados, inclusive para fins de cumprimento de obrigações legais, contratuais ou judiciais. Após o término do tratamento, os dados serão eliminados, salvo obrigações legais.</p>
 		</section>
-		<section>
+
+		<section class="politica-section">
 			<h2>10. Dúvidas?</h2>
 			<p>Se tiver qualquer dúvida a respeito do tratamento de seus dados pessoais ou sobre qualquer das informações constantes dessa política, você pode entrar em contato conosco pelo nosso endereço eletrônico <a href="mailto:teslabsb@gmail.com">teslabsb@gmail.com</a>. O nosso Encarregado de Dados poderá esclarecer qualquer dúvida sobre como coletamos e tratamos seus dados pessoais. A TESLA se reserva no direito de alterar total ou parcialmente a presente Política de Privacidade a qualquer tempo. Recomendamos que consulte esta página periodicamente.</p>
 		</section>
-	</main>
+	</div>
 
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="footer-content">
-			<div class="footer-logo">
-				<a href="/website/principal.html"><img src="/assets/tesla-branco.png" alt="Tesla Imagem Logo" width="180px"></a>
-			</div>
-			<div class="footer-links">
-				<ul>
-					<li><a href="/website/principal.html#sobre">Sobre</a></li>
-					<li><a href="/website/principal.html#servicos">Serviços</a></li>
-					<li><a href="/website/principal.html#convenios">Convênios</a></li>
-					<li><a href="/website/principal.html#contato">Contato</a></li>
-					<li><a href="/website/principal.html#unidade">Unidade</a></li>
-					<li><a href="/website/páginas/equipe/equipe.html">Equipe</a></li>
-				</ul>
-			</div>
-			<div class="footer-contact">
-				<ul>
-					<li><a href="tel:+5561981582323">(61) 98158-2323</a></li>
-					<li><a href="mailto:teslabsb@gmail.com">teslabsb@gmail.com</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<p>&copy; 2026 Tesla Imagem. Todos os direitos reservados.</p>
-		</div>
-	</footer>
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo"><img src="/assets/tesla-branco.png" alt="Tesla Imagem Logo" width="200px">
+                </div>
+                <p class="footer-description">Excelência e precisão em diagnósticos por imagem. Tecnologia avançada com
+                    cuidado personalizado.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" target="_blank">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" target="_blank">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" target="_blank">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554v-11.452h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zm-15.11-13.019c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h-3.564v-11.452h3.564v11.452zm15.106-20.452h-20.454c-.979 0-1.771.774-1.771 1.729v20.542c0 .956.792 1.729 1.771 1.729h20.451c.978 0 1.778-.773 1.778-1.729v-20.542c0-.955-.8-1.729-1.778-1.729z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Links Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#agendar">Agendar Exame</a></li>
+                    <li><a href="#paciente">Área do Paciente</a></li>
+                    <li><a href="#servicos">Nossos Serviços</a></li>
+                    <li><a href="#unidades">Unidades</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <ul class="footer-links">
+                    <li>Centro Clínico Cléo Otávio</li>
+                    <li>W1 Norte - Asa Norte</li>
+                    <li>Brasília - DF</li>
+                    <li><a href="tel:(61) 3326-9456">(61) 3326-9456</a></li>
+                    <li><a href="mailto:teslabsb@gmail.com">teslabsb@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tesla Imagem <a href="/website/páginas/politicas-privacidade/index.html" style="color: turquoise;">Políticas de Privacidade</a>. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
 	<!-- BOTAO DO ZAP -->
 	<a href="https://api.whatsapp.com/send?phone=5561981582323&text=Quero%20agendar%20um%20exame!" class="btn-whatsapp" target="_blank">
