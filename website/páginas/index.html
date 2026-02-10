@@ -18,6 +18,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/website/styles/principal.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="/website/scripts/principal.js" defer></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
@@ -520,6 +521,55 @@
         <img src="/assets/whatssapp.svg" alt="Botao whatsapp">
         <span class="tooltip-text">Fale conosco!</span>
     </a>
+
+    <!-- Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+        <script>
+            window.addEventListener('load', function() {
+                const ultimaExibicao = localStorage.getItem('ultimaExibicaoBoasVindas');
+                const agora = new Date().getTime();
+                const QUINZE_MINUTOS = 0 * 60 * 1000;
+                
+                if (!ultimaExibicao || (agora - parseInt(ultimaExibicao)) > QUINZE_MINUTOS) {
+                    Swal.fire({
+                        title: 'Bem-vindo ao Novo Site!',
+                        html: `
+                            <p style="font-size: 16px; color: #666; margin: 20px 0;">
+                                Nosso site está com uma nova cara! 
+                                Renovamos tudo para oferecer uma experiência ainda melhor.
+                            </p>
+                            <p style="font-size: 14px; color: #999; margin-top: 15px;">
+                                <i>Explore e conheça todas as novidades!</i>
+                            </p>
+                        `,
+                        confirmButtonText: 'Vamos lá!',
+                        confirmButtonColor: '#0199A4',
+                        width: 600,
+                        padding: '2em',
+                        backdrop: 'rgba(0, 38, 77, 0.4)',
+                        didOpen: () => {
+                            confetti({
+                                particleCount: 100,
+                                angle: 60,
+                                spread: 55,
+                                origin: { x: 0 },
+                                colors: ['#0199A4', '#00264d', '#ffffff']
+                            });
+                            confetti({
+                                particleCount: 100,
+                                angle: 120,
+                                spread: 55,
+                                origin: { x: 1 },
+                                colors: ['#0199A4', '#00264d', '#ffffff']
+                            });
+                        }
+                    });
+                    localStorage.setItem('ultimaExibicaoBoasVindas', agora.toString());
+                }
+            });
+        </script>
 </body>
 
 </html>
